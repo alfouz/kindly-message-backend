@@ -7,6 +7,7 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
+const port = process.env.PORT || 3000;
 
 app.get("/", function (req, res) {
   res.json("Make a request to /message to get your kindly message");
@@ -30,6 +31,6 @@ app.use(function (err, req, res, next) {
   else res.status(500).json({ message: "Internal error" });
 });
 
-app.listen(3300, function () {
-  console.log("El servidor ha sido inicializado: http://localhost:3300");
+app.listen(port, function () {
+  console.log(`El servidor ha sido inicializado: http://localhost:${port}`);
 });
